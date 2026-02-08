@@ -2,8 +2,7 @@ from fastapi.routing import APIRouter
 from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.exceptions import HTTPException
-from tool import app,get_connection
-from html import escape
+from vercel_tool import app,get_connection
 from dish_ssr import build_comments,build_dish,build_dish_page
 
 dish_route=APIRouter(prefix="/dish")
