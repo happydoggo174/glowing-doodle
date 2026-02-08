@@ -5,4 +5,3 @@ from fastapi.staticfiles import StaticFiles
 @app.get("/")
 async def ping():
     return "running"
-uvicorn.run(app)
