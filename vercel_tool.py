@@ -24,7 +24,7 @@ async def get_redis(url:Optional[str],token:Optional[str]):
 async def get_connection(transaction:bool=False):
     err=None
     print('connecting to postgresql.')
-    async with await asyncpg.connect(dsn=db_url) as con:
+    async with await asyncpg.connect(dsn=db_url,statement_cache_size=0) as con:
         con:asyncpg.Connection
         try:
             if(transaction):
