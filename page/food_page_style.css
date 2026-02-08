@@ -1,0 +1,120 @@
+.topic{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(184,92,56);
+}
+.tilte{
+    display: block;
+    text-align: center;
+    font-size: 36px;
+    margin-top: 16px;
+    font-family: serif;
+}
+.info_section{
+    margin-top: 12px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.info_item{
+    margin-right: 24px;
+}
+.main_image{
+    margin: auto;
+    max-height: 90vh;
+    display: block;
+    justify-content: center;
+}
+.util_rows{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    margin-top: 18px;
+}
+.util_btn{
+    background-color: rgb(184, 92, 56);
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-right: 18px;
+    color: white;
+    font-family: serif;
+}
+.util_btn:hover{
+    background-color: rgb(45,27,15);
+    position: relative;
+    bottom: 4px;
+}
+.center_row{
+    display: flex;
+    flex-direction: column;
+    margin-left: 22vw;
+    margin-right: 22vw;
+}
+.description{
+    word-wrap: break-word;
+    margin-bottom: 32px;
+}
+.list_container{
+    border-radius: 12px;
+    border-left: 4px solid #b85c38;
+    padding: 16px;
+    margin-bottom: 4vh;
+    box-shadow: 0px 3px 0px 0px wheat;
+}
+.ingredients-list li::before{
+    content: '⚓';
+}
+.ingredients-list li{
+    list-style-type: none;
+    margin-bottom: 6px;
+}
+.instructions_list li{
+    margin-bottom: 6px;
+    list-style-type: decimal;
+}
+.instructions_list li::marker{
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #b85c38;
+    color: black;
+    list-style-type: circle;
+}
+
+.other-banner{
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+.recipe_mini{
+    max-height: 70vh;
+    max-width: 30vw;
+    margin-right: 24px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+}
+.recipe_mini img{
+    max-height: 36vh;
+    max-width: 100%;
+    object-fit: cover;
+    box-shadow: 6px 6px 6px 6px rgba(212, 165, 116, 0.3);
+}
+.recipe_mini .tag{
+    color: #b85c38;
+    font-family: serif;
+    font-size: 14px;
+    margin-left: 18px;
+    margin-top: 36px;
+    display: block;
+}
+.recipe_mini .recipe-tilte{
+    font-family: serif;
+    font-size: 18px;
+    margin-left: 18px;
+    display: block;
+}

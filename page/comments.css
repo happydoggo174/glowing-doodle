@@ -1,0 +1,43 @@
+.comment-banner{
+    display: block;
+    text-align: center;
+    font-size: 36px;
+    margin-top: 36px;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    border: 1px solid wheat;
+    background-color: wheat;
+}
+.commenter{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 14px;
+    justify-content: baseline;
+}
+.commenter img{
+    max-width: 36px;
+    max-height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.commenter .name{
+    font-family: serif;
+    font-size: 24px;
+    margin-left: 18px;
+}
+.comment .content{
+    font-family: serif;
+    word-wrap: break-word;
+    font-size: 16px;
+}
+.comments-row{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}

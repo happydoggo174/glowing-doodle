@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry ship</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="core.css" rel="stylesheet">
+    <link href="home_page.css" rel="stylesheet">
+    <link rel="stylesheet" href="recipe-card.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--navbar-->
+    <header class="main_header">
+        <div class="container text-center">
+            <h1 class="main_tilte fade-in-up">Hungry Ship</h1>
+            <p class="main_motto slide-in-right">sail around the culinary world</p>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#recipes">Recipes</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="motto_section">
+        <div class="motto_content">
+            <b>hop on board</b>
+            <span>sail the high sea for the best foods</span>
+        </div>
+    </section>
+    <!--latest recipe section-->
+    <section id="recipes">
+        <p class="latest-recipe-banner">latest recipe</p>
+        <div class="row recipe-row" id="recipe_container">
+            <div class="recipe-card green_hover">
+                <a href="food_page.html" class="card-link">
+                    <img src="image/salad.avif">
+                    <div class="info">
+                        <span class="tag">GREEK</span>
+                        <span class="tilte">meditteranean garden bowl</span>
+                        <span class="description">a delicious bowl of fresh green vegetable</span>
+                        <div class="recipe-extra">
+                            <span>45 minutes</span>
+                            <span>easy</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="recipe-card yellow_hover">
+                <a href="food_page.html" class="card-link">
+
+                    <img src="image/pizza.avif">
+                    <div class="info">
+                        <span class="tag">ITALIAN</span>
+                        <span class="tilte">Classic Margherita Pizza</span>
+                        <span class="description">Homemade pizza dough topped with San Marzano tomatoes, fresh
+                            mozzarella,
+                            and basil.</span>
+                        <div class="recipe-extra">
+                            <span>26 minutes</span>
+                            <span>medium</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="recipe-card red_hover">
+                <a href="food_page.html" class="card-link">
+
+                    <img src="image/chocolatecake.jpg">
+                    <div class="info">
+                        <span class="tag">DESSERTS</span>
+                        <span class="tilte">Decadent Chocolate Cake</span>
+                        <span class="description">Rich, moist chocolate layers with silky ganache frosting that melts in
+                            your mouth.</span>
+                        <div class="recipe-extra">
+                            <span>67 minutes</span>
+                            <span>hard</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="recipe-card yellow_hover" id=dish:679a6d15-7781-426f-9f70-c153bbd44711>
+                <a href="http://127.0.0.1:8000/dish/detail/679a6d15-7781-426f-9f70-c153bbd44711" class="card-link">
+                    <img src="http://127.0.0.1:8000/dish/image/chocolatecake.avif">
+                    <div class="info">
+                        <span class="tag">DESSERT</span>
+                        <span class="tilte">Decadent Chocolate Cake</span>
+                        <span class="description">There's something magical about a perfectly baked chocolate cake. This recipe combines rich cocoa with silky ganache to create layers of pure indulgence. Whether you're celebrating a special occasion or simply treating yourself, this cake promises to deliver deep chocolate flavor in every bite.</span>
+                        <div class="recipe-extra">
+                            <span>15 minutes</span>
+                            <span>medium</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <p class="featured-recipe-banner">Featured Recipe</p>
+        <div class="featured-recipe-card horizontal_yellow_hover">
+            <img src="image/pancake.webp">
+            <div class="info">
+                <span class="tag">BREAKFAST</span>
+                <span class="tilte">Buttermilk Pancakes with Berry Compote</span>
+                <span class="description">Start your morning with these fluffy, golden pancakes topped with a warm berry
+                    compote. Made with simple ingredients you already have in your pantry, this breakfast favorite
+                    brings comfort and joy to any table.</span>
+                <div class="recipe-extra">
+                    <span>15 minutes</span>
+                    <span>medium</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="center row">
+            <div class="contact_padding">
+                <span class="contact_header">join our sail</span>
+                <span class="contact-info">get weekly email about things you care the most</span>
+                <form action="">
+                    <div class="contact_field">
+                        <input type="email" placeholder="your email">
+                        <button class="contact-btn">join</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

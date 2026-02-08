@@ -1,0 +1,139 @@
+.main_motto{
+    text-align: center;
+    color: #d4a574;
+}
+.motto_section{
+    background: url("image/cover.avif") center/cover;
+}
+.motto_content{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    height: 70vh;
+    justify-content: center;
+}
+.motto_content b{
+    font-size: 36px;
+}
+.latest-recipe-banner{
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+}
+.featured-recipe-banner{
+    display: block;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: serif;
+    margin-top: 14px;
+}
+.featured-recipe-card{
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px 6px rgba(212, 165, 116, 0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+    border-style: solid;
+    border-color: red;
+    border-width: 2px 0px 2px 0px;
+}
+@media screen and (min-width:600px){
+    .featured-recipe-card{
+        flex-direction: row;
+    }
+}
+.featured-recipe-card .tag{
+    display: block;
+    font-size: 18px;
+    font-family: serif;
+    color: red;
+}
+.featured-recipe-card .tilte{
+    font-size: 24px;
+    font-weight: bold;
+    font-family: serif;
+    display: block;
+}
+.featured-recipe-card .info{
+    margin-left: 18px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.featured-recipe-card img{
+    border-radius: 12px;
+    margin-bottom: 20px;
+    flex-grow: 2;
+    max-width: 60vw;
+    max-height: 80vh;
+}
+#contact{
+    background-color: #422815;
+    margin: 12px;
+    border-radius: 4px;
+}
+.contact_padding{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contact_header{
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    color: white;
+}
+.contact_field{
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.contact-btn{
+    padding: 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #b85c38;
+    text-align: center;
+}
+.contact-btn:hover{
+    position: relative;
+    bottom: 12px;
+    background-color: #d4a574;
+}
+.contact-info{
+    color: white;
+    text-align: center;
+    display: block;
+}
+.nav-item:hover{
+    text-decoration: underline;
+}
+.article-img{
+    max-height: 90vh;
+}
+.article-img-container{
+    display: flex;
+    justify-content: center;
+}
+.article-header .tag{
+    color: red;
+    font-size: 16px;
+    font-family: serif;
+}
+.article-header{
+    margin-left: 22px;
+}
+.article-extra{
+    display: flex;
+    justify-content: baseline;
+    gap: 18px;
+    font-size: 18px;
+}

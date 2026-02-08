@@ -1,0 +1,39 @@
+.recipe-card{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: #ffffd5;
+    box-shadow: 6px 6px 6px 6px rgba(212, 165, 116, 0.3);
+    min-height: 70vh;
+    justify-content: space-evenly;
+    margin-right: 14px;
+    margin-bottom: 14px;
+}
+.recipe-card .info{
+    margin-top: 16px;
+    margin-left: 18px;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.recipe-card .tag{
+    color: red;
+    font-size: 16px;
+}
+.recipe-card .tilte{
+    font-size: 28px;
+}
+.recipe-card img{
+    width: 100%;
+    height: 300px;
+}
+.recipe-extra{
+    display: flex;
+    justify-content: space-around;
+}
+.card-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit;        /* Inherit color from parent or define a new one */
+    cursor: pointer;       /* Ensures the cursor changes to a hand icon */
+}
