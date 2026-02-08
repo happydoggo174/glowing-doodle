@@ -15,11 +15,14 @@ async def get_dish_comment(dish_id:int,html:bool=True):
         return Response(content=build_comments(ret))
 @dish_route.get("")
 async def get_dish(html:bool=True):
-    async with get_connection() as con:
-        ret=await con.fetch('''select id,name,image,tag,level,description,time from dish''')
-        if(not html):
-            return ret
-        return Response(content=build_dish(ret))
+    try:
+        async with get_connection() as con:
+            ret=await con.fetch('''select id,name,image,tag,level,description,time from dish''')
+            if(not html):
+                return ret
+            return Response(content=build_dish(ret))
+    except Exception as e:
+        print(e)
 @dish_route.get("/detail/{dish_id}")
 async def get_dish_detail(dish_id:int,html:bool=True):
     async with get_connection() as con:
