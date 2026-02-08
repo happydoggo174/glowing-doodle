@@ -22,16 +22,16 @@ async def get_redis(url:Optional[str],token:Optional[str]):
 @asynccontextmanager
 async def get_connection(transaction:bool=False):
     err=None
-    async with await asyncpg.connect(dsn=db_url) as con:
-        con:asyncpg.Connection
-        try:
-            if(transaction):
-                async with con.transaction():
-                    yield con
-            else:
+    con=await asyncpg.connect(dsn=db_url)
+    con:asyncpg.Connection
+    try:
+        if(transaction):
+            async with con.transaction():
                 yield con
-        except Exception as e:
-            err=e
+        else:
+            yield con
+    except Exception as e:
+        err=e
     if(err is not None):raise err
 class session:
     __slots__="uid","priv"
