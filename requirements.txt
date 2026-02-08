@@ -5,3 +5,4 @@ asyncpg
 pillow
 PyJWT
 upstash-redis
+orjson
