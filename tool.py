@@ -82,9 +82,11 @@ class priv(IntEnum):
     user=1
     admin=2
 async def create_pool():
-    if(database_url):
+    global database_url
+    if(database_url is not None):
         return await asyncpg.create_pool(dsn=database_url)
     else:
+        print("creatin local db")
         return await asyncpg.create_pool(user="postgres",database='postgres',host='localhost',password='12345678')
 async def get_session(cred:Optional[HTTPAuthorizationCredentials]=Depends(scheme)):
     if(cred is None):return None
