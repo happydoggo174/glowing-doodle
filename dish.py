@@ -31,5 +31,4 @@ async def get_dish_detail(dish_id:int,html:bool=True):
         com=await con.fetch('''select name,image,content from comment where dish_id=$1''',dish_id)
     com=[{"name":"phuc","image":"user/image/phuc.avif","content":"splendid recipe indeeed"},{"name":"phuc","image":"user/image/phuc.avif","content":"splendid recipe indeeed"},{"name":"phuc","image":"user/image/phuc.avif","content":"splendid recipe indeeed"}]     
     return Response(content=build_dish_page(ret,com),media_type="text/html")
-app.mount("/dish/image",StaticFiles(directory="dish/image/"))
 app.include_router(dish_route)
