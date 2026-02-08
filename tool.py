@@ -81,9 +81,11 @@ def get_ip(request: Request):
 class priv(IntEnum):
     user=1
     admin=2
-
-
-
+async def create_pool():
+    if(database_url):
+        return await asyncpg.create_pool(dsn=database_url)
+    else:
+        return await asyncpg.create_pool(user="postgres",database='postgres',host='localhost',password='12345678')
 async def get_session(cred:Optional[HTTPAuthorizationCredentials]=Depends(scheme)):
     if(cred is None):return None
     async with redis.Redis(connection_pool=auth_redis) as r:
@@ -94,17 +96,13 @@ async def get_session(cred:Optional[HTTPAuthorizationCredentials]=Depends(scheme
         return session(int(uid),int(priv))
 @asynccontextmanager
 async def lifespan(app:Optional[FastAPI]):
-    global db_pool
-    if(database_url):
-        db_pool=await asyncpg.create_pool(dsn=database_url)
-    else:
-        db_pool=await asyncpg.pool.create_pool(user="postgres",database='postgres',host='localhost',password='12345678')
     yield
-    await db_pool.close()
     await auth_redis.disconnect()
 @asynccontextmanager
 async def get_connection(transaction:bool=False):
-    assert(db_pool is not None)
+    global db_pool
+    if(db_pool is None):
+        db_pool=await create_pool()
     err=None
     async with db_pool.acquire() as con:
         con:asyncpg.Connection
