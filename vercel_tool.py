@@ -13,7 +13,6 @@ auth_token=os.environ.get("AUTH_REDIS_TOKEN")
 app=FastAPI(default_response_class=ORJSONResponse)
 @asynccontextmanager
 async def get_redis(url:Optional[str],token:Optional[str]):
-    print("connecting to redis")
     if(url is None or token is None):
         raise ValueError("redis url and token is needed")
     async with redis.Redis(url,token) as r:
@@ -23,8 +22,7 @@ async def get_redis(url:Optional[str],token:Optional[str]):
 @asynccontextmanager
 async def get_connection(transaction:bool=False):
     err=None
-    print('connecting to postgresql.')
-    async with await asyncpg.connect(dsn=db_url,statement_cache_size=0) as con:
+    async with await asyncpg.connect(dsn=db_url) as con:
         con:asyncpg.Connection
         try:
             if(transaction):
