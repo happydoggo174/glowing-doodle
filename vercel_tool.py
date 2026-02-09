@@ -13,6 +13,8 @@ scheme=HTTPBearer(auto_error=False)
 db_url=os.environ.get("POSTGRES_URL")
 auth_url=os.environ.get("AUTH_REDIS")
 auth_token=os.environ.get("AUTH_REDIS_TOKEN")
+dish_cache_url=os.environ.get("HOME_REDIS")
+dish_cache_token=os.environ.get("HOME_REDIS_TOKEN")
 app=FastAPI(default_response_class=ORJSONResponse)
 con:psycopg.AsyncConnection|None=None
 @asynccontextmanager
@@ -57,7 +59,6 @@ async def get_session(cred:Optional[HTTPAuthorizationCredentials]=Depends(scheme
     async with get_redis(auth_url,auth_token) as r:
         data:Optional[bytes]=await r.get(cred.credentials)
         if(data is None):return None
-        await r.expire(cred.credentials,15*600)
         uid,priv=data.split(b":")
         return session(int(uid),int(priv))
 def is_vaild_filename(filename:str)->bool:
