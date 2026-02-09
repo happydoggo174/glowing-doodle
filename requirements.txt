@@ -1,7 +1,6 @@
 fastapi
 uvicorn
 redis
-asyncpg
 pillow
 PyJWT
 upstash-redis

@@ -1,4 +1,3 @@
-import asyncpg
 import psycopg
 from contextlib import asynccontextmanager
 import os

@@ -8,7 +8,6 @@ from fastapi.middleware.gzip import GZipMiddleware
 from typing import Optional
 from contextlib import asynccontextmanager
 import redis.asyncio as redis
-import asyncpg
 import asyncio
 from fastapi.responses import ORJSONResponse
 from enum import IntEnum
@@ -81,13 +80,6 @@ def get_ip(request: Request):
 class priv(IntEnum):
     user=1
     admin=2
-async def create_pool():
-    global database_url
-    if(database_url is not None):
-        return await asyncpg.create_pool(dsn=database_url)
-    else:
-        print("creatin local db")
-        return await asyncpg.create_pool(user="postgres",database='postgres',host='localhost',password='12345678')
 async def get_session(cred:Optional[HTTPAuthorizationCredentials]=Depends(scheme)):
     if(cred is None):return None
     async with redis.Redis(connection_pool=auth_redis) as r:
@@ -104,10 +96,8 @@ async def lifespan(app:Optional[FastAPI]):
 async def get_connection(transaction:bool=False):
     global db_pool
     if(db_pool is None):
-        db_pool=await create_pool()
     err=None
     async with db_pool.acquire() as con:
-        con:asyncpg.Connection
         try:
             if(transaction):
                 async with con.transaction():
