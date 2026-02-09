@@ -48,7 +48,13 @@ async def get_connection(transaction:bool=False):
                 yield cur
     except Exception as e:
         err=e
-    if(err is not None):raise err
+    finally:
+        if(err is not None):
+            if(transaction):
+                await con.execute("ROLLBACK")
+            raise err
+        elif(transaction):
+            await con.execute("COMMIT")
 class session:
     __slots__="uid","priv"
     def __init__(self,uid:int,priv:int):

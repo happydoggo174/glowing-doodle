@@ -28,7 +28,13 @@ async def get_dish(html:bool=True,page:int=0):
             has_redis=False 
         if(ret is None):
             async with get_connection() as con:
-                ret=(await (await con.execute(f'''select id,name,image,tag,level,description,time from dish limit 20 offset {page*20}''')).fetchall())
+                print(type(con))
+                try:
+                    ret=(await (await con.execute(f'''select id,name,image,tag,level,description,time from 
+                                              dish limit 20 offset {page*20}''')).fetchall())
+                except Exception as e:
+                    print("db error",e)
+                    raise
                 if(has_redis):
                     async with get_redis(dish_cache_url or "",dish_cache_token) as r:
                         try:
