@@ -25,7 +25,7 @@ async def get_dish(html:bool=True,page:int=0):
                 if(ret is not None):
                     ret=orjson.loads(ret)
         except:
-            has_redis=False
+            has_redis=False 
         if(ret is None):
             async with get_connection() as con:
                 ret=(await (await con.execute(f'''select id,name,image,tag,level,description,time from dish limit 20 offset {page*20}''')).fetchall())
