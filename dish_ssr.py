@@ -1,17 +1,16 @@
 import os
 from fastapi import HTTPException
 from html_util import assemble_time
-
-BASE_ADDR="http://127.0.0.1:8000/"
+from ssr_config import BASE_ADDR,GITHUB_ADDRESS
 DISH_PAGE_HEAD=f'''<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hungry Ship</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="{BASE_ADDR+"page/"}core.css" rel="stylesheet">
-    <link rel="stylesheet" href="{BASE_ADDR+"page/"}food_page_style.css">
-    <link rel="stylesheet" href="{BASE_ADDR+"page/"}comments.css">
+    <link href="{GITHUB_ADDRESS}core.css" rel="stylesheet">
+    <link rel="stylesheet" href="{GITHUB_ADDRESS}food_page_style.css">
+    <link rel="stylesheet" href="{GITHUB_ADDRESS}comments.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

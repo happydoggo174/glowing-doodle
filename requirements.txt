@@ -6,3 +6,5 @@ pillow
 PyJWT
 upstash-redis
 orjson
+vercel
+psycopg[binary,pool]
