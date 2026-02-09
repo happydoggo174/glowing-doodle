@@ -22,16 +22,18 @@ async def get_dish(html:bool=True,page:int=0):
         try:
             async with get_redis(dish_cache_url or "",dish_cache_token) as r:
                 ret=await r.get(f"home:{page}")
+                if(ret is not None):
+                    ret=orjson.loads(ret)
         except:
             has_redis=False
         if(ret is None):
             async with get_connection() as con:
                 ret=(await (await con.execute('''select id,name,image,tag,level,description,time 
-                                              from dish limit 20 page ?''',(page*20,))).fetchall())
+                                              from dish limit 20 offset ?''',(page*20,))).fetchall())
                 if(has_redis):
                     async with get_redis(dish_cache_url or "",dish_cache_token) as r:
                         try:
-                            await r.set(f"home:{page}",orjson.dumps(ret).decode())
+                            await r.set(f"home:{page}",orjson.dumps(ret),ex=600)
                         except:
                             pass
         if(not html):
