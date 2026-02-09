@@ -28,8 +28,8 @@ async def get_dish(html:bool=True,page:int=0):
             has_redis=False
         if(ret is None):
             async with get_connection() as con:
-                ret=(await (await con.execute('''select id,name,image,tag,level,description,time 
-                                              from dish limit 20 offset %s''',(page*20,))).fetchall())
+                ret=(await (await con.execute(f'''select id,name,image,tag,level,description,time 
+                                              from dish limit 20 offset {page*20}''')).fetchall())
                 if(has_redis):
                     async with get_redis(dish_cache_url or "",dish_cache_token) as r:
                         try:
